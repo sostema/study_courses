@@ -13,24 +13,21 @@ int main() {
       r1 = -z / y;
       r_quantity++;
     }
-  }
-  else {
+  } else {
     double d;
-    d = y*y - 4*x*z;
-    if (d > 0){
-      r_quantity+=2;
-      r1 = (-y + sqrt(d))/(2*x);
-      r2 = (-y - sqrt(d))/(2*x);
-    }
-    else if (d == 0){
+    d = y * y - 4 * x * z;
+    if (d > 0) {
+      r_quantity += 2;
+      r1 = (-y + sqrt(d)) / (2 * x);
+      r2 = (-y - sqrt(d)) / (2 * x);
+    } else if (d == 0) {
       r_quantity++;
-      r1 = -y/(2*x);
+      r1 = -y / (2 * x);
     }
   }
-  if (r_quantity == 1){
+  if (r_quantity == 1) {
     std::cout << r1;
-  }
-  else if (r_quantity == 2){
+  } else if (r_quantity == 2) {
     std::cout << r1 << " " << r2;
   }
   return 0;

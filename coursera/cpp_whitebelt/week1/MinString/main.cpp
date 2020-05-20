@@ -6,11 +6,9 @@ int main() {
   std::cin >> x >> y >> z;
   if (x <= y && x <= z) {
     std::cout << x;
-  }
-  else if (z <= x && z <= y) {
+  } else if (z <= x && z <= y) {
     std::cout << z;
-  }
-  else {
+  } else {
     std::cout << y;
   }
   return 0;
