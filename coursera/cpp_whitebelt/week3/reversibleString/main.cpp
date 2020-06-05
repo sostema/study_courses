@@ -5,13 +5,13 @@
 class ReversibleString {
  public:
   ReversibleString() = default;;
-  explicit ReversibleString(const std::string& s) {
+  explicit ReversibleString(const std::string &s) {
     _s = s;
   }
-  void Reverse(){
+  void Reverse() {
     std::reverse(_s.begin(), _s.end());
   }
-  [[nodiscard]] std::string ToString() const{
+  [[nodiscard]] std::string ToString() const {
     return _s;
   }
  private:
@@ -24,7 +24,7 @@ int main() {
   std::cout << s.ToString() << std::endl;
 
   s.Reverse();
-  const ReversibleString& s_ref = s;
+  const ReversibleString &s_ref = s;
   std::string tmp = s_ref.ToString();
   std::cout << tmp << std::endl;
 

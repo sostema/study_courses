@@ -9,15 +9,15 @@ class Rational {
   }
 
   Rational(long long int numerator, long long int denominator) {
-    if (numerator < 0 && denominator < 0){
+    if (numerator < 0 && denominator < 0) {
       numerator = -numerator;
       denominator = -denominator;
     }
-    if (numerator * denominator < 0){
+    if (numerator * denominator < 0) {
       numerator = -abs(numerator);
       denominator = abs(denominator);
     }
-    if (numerator == 0){
+    if (numerator == 0) {
       numerator = 0;
       denominator = 1;
     }
@@ -30,12 +30,12 @@ class Rational {
 
   }
 
-  static int GCD(long long int a, long long int b){
+  static int GCD(long long int a, long long int b) {
     if (!a)
       return abs(b);
     if (!b)
       return abs(a);
-    for ( ; ; )
+    for (;;)
       if (!(a %= b))
         return abs(b);
       else if (!(b %= a))
@@ -57,25 +57,25 @@ class Rational {
 
 // Реализуйте для класса Rational операторы ==, + и -
 
-bool operator==(const Rational& l, const Rational& r)  {
+bool operator==(const Rational &l, const Rational &r) {
   return (l.Numerator() == r.Numerator()) && (l.Denominator() == r.Denominator());
 }
 
-Rational operator+(const Rational& l, const Rational& r){
+Rational operator+(const Rational &l, const Rational &r) {
   return Rational(l.Numerator() * r.Denominator() + r.Numerator() * l.Denominator(), l.Denominator() * r.Denominator());
 }
 
-Rational operator-(const Rational& l, const Rational& r){
+Rational operator-(const Rational &l, const Rational &r) {
   return Rational(l.Numerator() * r.Denominator() - r.Numerator() * l.Denominator(), l.Denominator() * r.Denominator());
 }
 
 // Реализуйте для класса Rational операторы * и /
 
-Rational operator*(const Rational& l, const Rational& r){
+Rational operator*(const Rational &l, const Rational &r) {
   return Rational(l.Numerator() * r.Numerator(), l.Denominator() * r.Denominator());
 }
 
-Rational operator/(const Rational& l, const Rational& r){
+Rational operator/(const Rational &l, const Rational &r) {
   return Rational(l.Numerator() * r.Denominator(), l.Denominator() * r.Numerator());
 }
 

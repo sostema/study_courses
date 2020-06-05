@@ -2,7 +2,7 @@ largest = None
 smallest = None
 while True:
     num = input("Enter a number: ")
-    if num == "done" : break
+    if num == "done": break
     try:
         num = int(num)
         if num > largest or largest is None:

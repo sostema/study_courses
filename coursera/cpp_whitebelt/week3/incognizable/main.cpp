@@ -1,8 +1,8 @@
 #include <iostream>
 
 struct Incognizable {
- int x;
- int y;
+  int x;
+  int y;
 };
 
 int main() {

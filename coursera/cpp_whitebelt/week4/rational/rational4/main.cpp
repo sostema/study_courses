@@ -11,15 +11,15 @@ class Rational {
   }
 
   Rational(int numerator, int denominator) {
-    if (numerator < 0 && denominator < 0){
+    if (numerator < 0 && denominator < 0) {
       numerator = -numerator;
       denominator = -denominator;
     }
-    if (numerator * denominator < 0){
+    if (numerator * denominator < 0) {
       numerator = -abs(numerator);
       denominator = abs(denominator);
     }
-    if (numerator == 0){
+    if (numerator == 0) {
       numerator = 0;
       denominator = 1;
     }
@@ -32,12 +32,12 @@ class Rational {
 
   }
 
-  static int GCD(int a, int b){
+  static int GCD(int a, int b) {
     if (!a)
       return abs(b);
     if (!b)
       return abs(a);
-    for ( ; ; )
+    for (;;)
       if (!(a %= b))
         return abs(b);
       else if (!(b %= a))
@@ -59,39 +59,39 @@ class Rational {
 
 // Реализуйте для класса Rational операторы ==, + и -
 
-bool operator==(const Rational& l, const Rational& r)  {
+bool operator==(const Rational &l, const Rational &r) {
   return (l.Numerator() == r.Numerator()) && (l.Denominator() == r.Denominator());
 }
 
-Rational operator+(const Rational& l, const Rational& r){
+Rational operator+(const Rational &l, const Rational &r) {
   return Rational(l.Numerator() * r.Denominator() + r.Numerator() * l.Denominator(), l.Denominator() * r.Denominator());
 }
 
-Rational operator-(const Rational& l, const Rational& r){
+Rational operator-(const Rational &l, const Rational &r) {
   return Rational(l.Numerator() * r.Denominator() - r.Numerator() * l.Denominator(), l.Denominator() * r.Denominator());
 }
 
 // Реализуйте для класса Rational операторы * и /
 
-Rational operator*(const Rational& l, const Rational& r){
+Rational operator*(const Rational &l, const Rational &r) {
   return Rational(l.Numerator() * r.Numerator(), l.Denominator() * r.Denominator());
 }
 
-Rational operator/(const Rational& l, const Rational& r){
+Rational operator/(const Rational &l, const Rational &r) {
   return Rational(l.Numerator() * r.Denominator(), l.Denominator() * r.Numerator());
 }
 
-ostream& operator<<(ostream& stream, const Rational& r){
+ostream &operator<<(ostream &stream, const Rational &r) {
   stream << r.Numerator() << '/' << r.Denominator();
   return stream;
 }
 
-istream& operator>>(istream& stream, Rational& r){
+istream &operator>>(istream &stream, Rational &r) {
   int n{0}, d{1};
-  if (stream && stream.tellg() != -1 && !stream.eof()){
+  if (stream && stream.tellg() != -1 && !stream.eof()) {
     stream >> n;
     stream.ignore(1);
-    if (stream && stream.tellg() != -1 && !stream.eof()){
+    if (stream && stream.tellg() != -1 && !stream.eof()) {
       stream >> d;
       r = Rational(n, d);
     }

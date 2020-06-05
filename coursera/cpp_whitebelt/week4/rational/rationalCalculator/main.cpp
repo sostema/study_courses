@@ -42,41 +42,40 @@ class Rational {
   int denominator;
 };
 
-
-bool operator == (const Rational& lhs, const Rational& rhs) {
+bool operator==(const Rational &lhs, const Rational &rhs) {
   return lhs.Numerator() == rhs.Numerator() &&
       lhs.Denominator() == rhs.Denominator();
 }
 
-Rational operator + (const Rational& lhs, const Rational& rhs) {
+Rational operator+(const Rational &lhs, const Rational &rhs) {
   return {
       lhs.Numerator() * rhs.Denominator() + rhs.Numerator() * lhs.Denominator(),
       lhs.Denominator() * rhs.Denominator()
   };
 }
 
-Rational operator - (const Rational& lhs, const Rational& rhs) {
+Rational operator-(const Rational &lhs, const Rational &rhs) {
   return {
       lhs.Numerator() * rhs.Denominator() - rhs.Numerator() * lhs.Denominator(),
       lhs.Denominator() * rhs.Denominator()
   };
 }
 
-Rational operator * (const Rational& lhs, const Rational& rhs) {
+Rational operator*(const Rational &lhs, const Rational &rhs) {
   return {
       lhs.Numerator() * rhs.Numerator(),
       lhs.Denominator() * rhs.Denominator()
   };
 }
 
-Rational operator / (const Rational& lhs, const Rational& rhs) {
+Rational operator/(const Rational &lhs, const Rational &rhs) {
   if (rhs.Numerator() == 0) {
     throw domain_error("");
   }
   return lhs * Rational(rhs.Denominator(), rhs.Numerator());
 }
 
-istream& operator >> (istream& is, Rational& r) {
+istream &operator>>(istream &is, Rational &r) {
   int n, d;
   char c;
 
@@ -90,30 +89,34 @@ istream& operator >> (istream& is, Rational& r) {
   return is;
 }
 
-ostream& operator << (ostream& os, const Rational& r) {
+ostream &operator<<(ostream &os, const Rational &r) {
   return os << r.Numerator() << '/' << r.Denominator();
 }
 
-bool operator < (const Rational& lhs, const Rational& rhs) {
+bool operator<(const Rational &lhs, const Rational &rhs) {
   return (lhs - rhs).Numerator() < 0;
 }
 
-int main(){
+int main() {
   Rational r1, r2;
   char operation;
   try {
     std::cin >> r1 >> operation >> r2;
     switch (operation) {
-      case '+': std::cout << r1 + r2; break;
-      case '-': std::cout << r1 - r2; break;
-      case '*': std::cout << r1 * r2; break;
-      case '/': std::cout << r1 / r2; break;
+      case '+': std::cout << r1 + r2;
+        break;
+      case '-': std::cout << r1 - r2;
+        break;
+      case '*': std::cout << r1 * r2;
+        break;
+      case '/': std::cout << r1 / r2;
+        break;
     }
   }
-  catch (invalid_argument&) {
+  catch (invalid_argument &) {
     std::cout << "Invalid argument";
   }
-  catch (domain_error&) {
+  catch (domain_error &) {
     std::cout << "Division by zero";
   }
 

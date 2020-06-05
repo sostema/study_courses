@@ -9,15 +9,15 @@ class Rational {
   }
 
   Rational(int numerator, int denominator) {
-    if (numerator < 0 && denominator < 0){
+    if (numerator < 0 && denominator < 0) {
       numerator = -numerator;
       denominator = -denominator;
     }
-    if (numerator * denominator < 0){
+    if (numerator * denominator < 0) {
       numerator = -abs(numerator);
       denominator = abs(denominator);
     }
-    if (numerator == 0){
+    if (numerator == 0) {
       numerator = 0;
       denominator = 1;
     }
@@ -30,12 +30,12 @@ class Rational {
 
   }
 
-  static int GCD(int a, int b){
+  static int GCD(int a, int b) {
     if (!a)
       return abs(b);
     if (!b)
       return abs(a);
-    for ( ; ; )
+    for (;;)
       if (!(a %= b))
         return abs(b);
       else if (!(b %= a))

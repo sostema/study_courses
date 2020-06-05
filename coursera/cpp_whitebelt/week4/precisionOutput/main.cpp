@@ -7,7 +7,7 @@ int main() {
   std::ifstream ifstream("input.txt");
   double line;
   std::cout << std::fixed << std::setprecision(3);
-  while (ifstream >> line){
+  while (ifstream >> line) {
     std::cout << line << std::endl;
   }
   ifstream.close();

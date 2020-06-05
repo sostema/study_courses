@@ -13,7 +13,7 @@ class TimeServer {
       last_fetched_time = s;
       return s;
     }
-    catch (system_error&) {
+    catch (system_error &) {
       return last_fetched_time;
     }
   }

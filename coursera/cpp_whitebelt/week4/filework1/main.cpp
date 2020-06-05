@@ -5,7 +5,7 @@
 int main() {
   std::ifstream ifstream("input.txt");
   std::string line;
-  while (getline(ifstream, line)){
+  while (getline(ifstream, line)) {
     std::cout << line << std::endl;
   }
   ifstream.close();

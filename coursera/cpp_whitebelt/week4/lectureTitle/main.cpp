@@ -2,23 +2,23 @@
 #include <string>
 #include <utility>
 
-struct Specialization{
+struct Specialization {
   std::string specialization;
-  explicit Specialization(std::string s){
+  explicit Specialization(std::string s) {
     this->specialization = std::move(s);
   }
 };
 
-struct Course{
+struct Course {
   std::string course;
-  explicit Course(std::string c){
+  explicit Course(std::string c) {
     this->course = std::move(c);
   }
 };
 
-struct Week{
+struct Week {
   std::string week;
-  explicit Week(std::string w){
+  explicit Week(std::string w) {
     this->week = std::move(w);
   }
 };
@@ -27,5 +27,7 @@ struct LectureTitle {
   std::string specialization;
   std::string course;
   std::string week;
-  LectureTitle(const Specialization& s, const Course& c, const Week& w) : course{c.course}, specialization{s.specialization}, week{w.week} {}
+  LectureTitle(const Specialization &s, const Course &c, const Week &w) : course{c.course},
+                                                                          specialization{s.specialization},
+                                                                          week{w.week} {}
 };

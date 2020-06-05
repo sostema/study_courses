@@ -4,35 +4,33 @@
 
 class Person {
  public:
-  void ChangeFirstName(int year, const std::string& first_name) {
+  void ChangeFirstName(int year, const std::string &first_name) {
     firstName[year] = first_name;
   }
-  void ChangeLastName(int year, const std::string& last_name) {
+  void ChangeLastName(int year, const std::string &last_name) {
     lastName[year] = last_name;
   }
   std::string GetFullName(int year) {
     std::string latest_firstName;
     std::string latest_lastName;
-    for (const auto& i : firstName){
-      if (year >= i.first){
+    for (const auto &i : firstName) {
+      if (year >= i.first) {
         latest_firstName = i.second;
       }
     }
-    for (const auto& i : lastName){
-      if (year >= i.first){
+    for (const auto &i : lastName) {
+      if (year >= i.first) {
         latest_lastName = i.second;
       }
     }
-    if (latest_firstName.empty() && latest_lastName.empty()){
+    if (latest_firstName.empty() && latest_lastName.empty()) {
       return "Incognito";
-    } else{
-      if(latest_firstName.empty()){
+    } else {
+      if (latest_firstName.empty()) {
         return latest_lastName + " with unknown first name";
-      }
-      else if (latest_lastName.empty()){
+      } else if (latest_lastName.empty()) {
         return latest_firstName + " with unknown last name";
-      }
-      else{
+      } else {
         return latest_firstName + " " + latest_lastName;
       }
     }

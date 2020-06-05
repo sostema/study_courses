@@ -4,7 +4,7 @@
 
 class SortedStrings {
  public:
-  void AddString(const std::string& s){
+  void AddString(const std::string &s) {
     strings.push_back(s);
     std::sort(strings.begin(), strings.end());
   }
@@ -15,8 +15,8 @@ class SortedStrings {
   std::vector<std::string> strings;
 };
 
-void PrintSortedStrings(SortedStrings& strings) {
-  for (const auto& s : strings.GetSortedStrings()) {
+void PrintSortedStrings(SortedStrings &strings) {
+  for (const auto &s : strings.GetSortedStrings()) {
     std::cout << s << " ";
   }
   std::cout << std::endl;

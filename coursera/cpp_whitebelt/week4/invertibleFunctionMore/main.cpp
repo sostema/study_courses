@@ -40,13 +40,13 @@ class Function {
     parts.emplace_back(operation, value);
   }
   double Apply(double value) const {
-    for (const FunctionPart& part : parts) {
+    for (const FunctionPart &part : parts) {
       value = part.Apply(value);
     }
     return value;
   }
   void Invert() {
-    for (FunctionPart& part : parts) {
+    for (FunctionPart &part : parts) {
       part.Invert();
     }
     reverse(begin(parts), end(parts));

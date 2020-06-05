@@ -28,17 +28,16 @@ struct Date {
   }
   bool operator<(const Date &rhs) const {
     if (this->year < rhs.year) return true;
-    else if (this->year == rhs.year){
+    else if (this->year == rhs.year) {
       if (this->month < rhs.month) return true;
-      else{
-        if (this->month == rhs.month){
+      else {
+        if (this->month == rhs.month) {
           return this->day < rhs.day;
-        } else{
+        } else {
           return false;
         }
       }
-    }
-    else{
+    } else {
       return false;
     }
   }
@@ -46,10 +45,6 @@ struct Date {
     return (this->day == rhs.day) && (this->month == rhs.month) && (this->year == rhs.year);
   }
 };
-
-
-
-
 
 struct Event {
   Event(string event) {
@@ -69,8 +64,8 @@ bool operator<(const Event &lhs, const Event &rhs) {
 class Database {
  public:
   void AddEvent(const Date &date, const Event &event) {
-    int c= data.count(date);
-    if (data.count(date) == 0){
+    int c = data.count(date);
+    if (data.count(date) == 0) {
       data.insert(pair<Date, set<Event>>(date, set<Event>()));
     }
     data[date].insert(event);
