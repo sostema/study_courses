@@ -1,6 +1,5 @@
-import math
-
 import argparse
+import math
 
 
 def diffPayment(m, principal, interest, periods):
